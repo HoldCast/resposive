@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端样式重置</title>
+    <style>
+        body{
+            font-family: helvetica;  /*手机字体*/
+        }
+    </style>
+    <script>
+        /*
+        * 1.点击链接时，有一个默认背景
+        * -webkit-tap-highlight-color: rgba(0,0,0,0)
+        * 2.按钮在ios下都是圆角
+        * -webkit-appearance: none;
+        * border-radius: 0;
+        * 3.移动设备没有那么多字体（没有宋体和微软雅黑）
+        * font-family: helvetica;
+        * 4.切换横竖屏或者用户自己通过浏览器设置的话，可以改变字体大小（需要给body下所有元素）
+        * -webkit-text-size-adjust:100%
+        * 5.长按文字ios下会选中文字，安卓无效
+        * -webkit-user-select:none;
+        * 6.固定定位在一些低版本ios不兼容，一些国产手机也不兼容（山寨机）
+        * */
+    </script>
+</head>
+<body>
+    <a href="">a标签</a>
+    <input type="button" value="button">
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+header{
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    width: 18rem;
+    background: #ff265e;
+    color: #f9f9f9;
+}
+.banner{
+    text-align: center;
+    height: 6rem;
+    width: 18rem;
+    background: #ffb450;
+    color: #f9f9f9;
+}
+.ad div{
+    width: 6rem;
+    height: 5rem;
+    text-align: center;
+    line-height: 5rem;
+}
+.ad .ad1{
+    background: #ff5b95;
+}
+.ad .ad2{
+    background: #2e83ff;
+}
+.ad .ad3{
+    background: #35ff54;
+}
+.product .title{
+    width: 4rem;
+    height: 4rem;
+    background: #1987e2;
+}
+.product .content{
+    width: 14rem;
+    height: 4rem;
+    background: #e23ecf;
+}

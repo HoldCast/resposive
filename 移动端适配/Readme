@@ -1,0 +1,45 @@
+适配问题：
+
+1.百分比适配
+//缺点：不容易计算真实值，并不靠谱
+
+2.采用相同独立像素适配
+//独立像素（ｐｘ），设备像素（分辨率）；通过修改独立像素将所有设备设置为统一的像素
+//动态适配移动端宽度
+var curWidth = window.screen.width;
+var targetWidth = 375; //按照375来开发页面
+var scale = curWidth/375;
+var meta = document.createElement("meta");
+meta.name = "viewport";
+meta.content = "initial-scale="+scale+",maximum-scale="+scale+",minimum-scale="+scale;
+document.head.appendChild(meta);
+缺点： 设备的大小不一样，影响体验，并且计算后的比例出现小数后，并不是很准确
+
+3.动态获取像素比例适配
+/*
+* iphone5: 320/scale = 640px;  scale = 1/2;
+* iphone6: 375/scale = 750px; scale = 1/2;
+* iphone6p:414/scale = 1242px; scale = 1/3;
+* scale = 1/DPR
+* */
+//像素比适配
+var scale = 1/window.devicePixelRatio; //设备，像素，比例
+var meta = document.createElement("meta");
+meta.name = "viewport";
+meta.content = "initial-scale="+scale+",maximum-scale="+scale+",minimum-scale="+scale;
+document.head.appendChild(meta);
+缺点：需要兼容响应各种设备，而且计算出现小数后也会有问题，而且很多设备的分辨率跟算出来的像素有误差
+
+4.rem适配
+
+/*
+ * em:相对单位，相对自身字体大小的值
+ * 缺点： chorme下最小字体大小为12，必须大于12， 两个元素的字体大小不一致的话，不能统一设置
+ *
+ * rem:相对单位，css3新增相对单位，相对于根节点html的字体大小
+ * 1.动态设置html的
+ * */
+var html = document.documentElement;
+var width = html.getBoundingClientRect().width;     //设备尺寸分辨率(window.screen.width)
+html.style.fontSize = width / 16 + 'px';            //将屏幕分成16份：iphone5下（320/16） 1rem = 20px;
+//html.style.fontSize = width / 15 + 'px';          //将屏幕分成15份：iphone6下（375/15） 1rem = 25px;

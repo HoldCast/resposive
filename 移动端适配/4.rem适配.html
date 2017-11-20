@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>rem适配</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .em {
+            font-size: 30px;
+            width: 10em;
+            height: 10em;
+            background: #ccc;
+        }
+
+        .rem {
+            width: 10rem;
+            height: 10rem;
+            background: #94dfff;
+        }
+
+        .main div {
+            width: 4rem;
+            height: 3rem;
+            float: left;
+        }
+
+        .main div:nth-child(1) {
+            background: blue;
+        }
+
+        .main div:nth-child(2) {
+            background: yellow;
+        }
+
+        .main div:nth-child(3) {
+            background: red;
+        }
+
+        .main div:nth-child(4) {
+            background: #1aff4f;
+        }
+
+        .section{
+            width: 16rem;
+            height:4rem;
+            background: #ccc;
+            clear: both;
+        }
+    </style>
+    <script>
+
+        /*
+         * em:相对单位，相对自身字体大小的值
+         * 缺点： chorme下最小字体大小为12，必须大于12， 两个元素的字体大小不一致的话，不能统一设置
+         *
+         * rem:相对单位，css3新增相对单位，相对于根节点html的字体大小
+         * 1.动态设置html的
+         * */
+
+        function autoRem(){
+            var html = document.documentElement;
+            var width = html.getBoundingClientRect().width;     //设备尺寸分辨率(window.screen.width)
+            html.style.fontSize = width / 16 + 'px';            //将屏幕分成16份：iphone5下（320/16） 1rem = 20px;
+            //html.style.fontSize = width / 15 + 'px';          //将屏幕分成15份：iphone6下（375/15） 1rem = 25px;
+        }
+
+        (function () {
+            autoRem();
+            window.addEventListener('resize',autoRem,false);
+        })();
+    </script>
+</head>
+<body>
+<!--<div class="em">em</div>-->
+<!--<div class="rem"></div>-->
+<div class="main">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="section">
+    section
+</div>
+</body>
+</html>
